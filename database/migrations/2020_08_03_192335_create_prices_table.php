@@ -15,7 +15,7 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->char('exchange_rate')->default('DKK');
+            $table->char('currency_code')->default('DKK');
             $table->float('amount', 10, 2, true);
             $table->timestamps();
         });
@@ -32,6 +32,9 @@ class CreatePricesTable extends Migration
      */
     public function down()
     {
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign('products_price_id_foreign');
+        });
         Schema::dropIfExists('prices');
     }
 }
