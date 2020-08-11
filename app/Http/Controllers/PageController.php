@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index()
     {
-        return view('index');
+        /** @var Product[] $products */
+        $products = Product::all();
+
+        return view('index', compact('products'));
     }
 
     public function about()
