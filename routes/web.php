@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,13 @@ Route::get('/blog', ['uses' => 'pageController@blog', 'as' => 'blog']);
 Route::get('/portfolio', ['uses' => 'pageController@portfolio', 'as' => 'portfolio']);
 
 Route::get('/contact', ['uses' => 'pageController@contact', 'as' => 'contact']);
+
+Route::post('/mail', ['uses' => 'pageController@mail', 'as' => 'contactForm']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+    Route::resource('art', 'ArtController');
+});

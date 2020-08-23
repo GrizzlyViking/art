@@ -1,8 +1,8 @@
-@extends('layout.standard')
+@extends('layouts.clarity')
 
 
 <!-- Navigation -->
-@include('layout.navigation')
+@include('layouts.navigation')
 <!-- /Navigation -->
 
 
