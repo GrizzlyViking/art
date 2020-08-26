@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePricesTable extends Migration
+class AddMetaColumnToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,8 @@ class CreatePricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prices', function (Blueprint $table) {
-            $table->id();
-            $table->char('currency_code')->default('DKK');
-            $table->float('amount', 10, 2, true);
-            $table->timestamps();
-        });
-
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('price_id')->references('id')->on('prices')->onDelete('cascade');
+            $table->json('meta')->nullable(true);
         });
     }
 
@@ -33,8 +26,7 @@ class CreatePricesTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_price_id_foreign');
+            $table->dropColumn('meta');
         });
-        Schema::dropIfExists('prices');
     }
 }

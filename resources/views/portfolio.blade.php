@@ -1,4 +1,4 @@
-@extends('layout.standard')
+@extends('layouts.clarity')
 
 @section('content')
     <main class="main-container">

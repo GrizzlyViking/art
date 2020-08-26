@@ -1,7 +1,7 @@
-@extends('layout.standard')
+@extends('layouts.clarity')
 
 @section('content')
-    <main class="main-container">
+    <main id="app" class="main-container">
 
         <!-- Hero -->
         <header id="home" class="hero" style="background-image: url(images/home.png);" data-stellar-background-ratio=".5">
@@ -63,8 +63,8 @@
 
                             <!-- Section Heading -->
                             <div class="section-heading">
-                                <div class="section-title">About Company</div>
-                                <p class="section-subtitle">Just a few words will give you an idea of our company</p>
+                                <div class="section-title">A Rolling Stone</div>
+                                <p class="section-subtitle">A rolling stone gathers no moss, especially when its fiery and latin.</p>
                             </div>
                             <!-- /Section Heading -->
 
@@ -171,65 +171,17 @@
                     <div class="col-12 col-lg-10">
                         <div class="row">
 
+                            @foreach($products as $product)
                             <!-- Column -->
                             <div class="col-12 col-lg-4">
                                 <!-- Gallery Item -->
-                                <a href="images/3x4/image-01.jpg" class="gallery-image popup-image mb-4">
-                                    <img src="images/3x4/image-01.jpg" alt="" title="" class="img-fluid">
+                                <a href="{{ $product->getFirstMedia('painting')->getUrl() }}" class="gallery-image popup-image mb-4">
+                                    <img src="{{ $product->getFirstMedia('painting')->getUrl() }}" alt="" title="" class="img-fluid">
                                 </a>
                                 <!-- /Gallery Item -->
                             </div>
                             <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-02.jpg" class="gallery-image popup-image mb-4">
-                                    <img src="images/3x4/image-02.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-03.jpg" class="gallery-image popup-image mb-4">
-                                    <img src="images/3x4/image-03.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-04.jpg" class="gallery-image popup-image mb-4">
-                                    <img src="images/3x4/image-04.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-05.jpg" class="gallery-image popup-image mb-4">
-                                    <img src="images/3x4/image-05.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-06.jpg" class="gallery-image popup-image">
-                                    <img src="images/3x4/image-06.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
+                            @endforeach
 
                         </div>
                     </div>
@@ -239,264 +191,6 @@
             </div>
         </section>
         <!-- /Section: Projects -->
-
-        <!-- Section: Features -->
-        <section id="features" class="section section-features">
-            <div class="container">
-
-                <!-- Section Muted Title -->
-                <div class="section-muted-title" data-stellar-ratio=".9">
-                    <span>Best</span>
-                </div>
-                <!-- /Section Muted Title -->
-
-                <!-- Section Header Row -->
-                <div class="row">
-                    <div class="col-12">
-                        <header class="section-header">
-
-                            <!-- Section Navigation -->
-                            <div class="section-navigation">
-                                <a href="#projects" class="smooth-scroll">02 <span>Works</span></a>
-                                <a href="#testimonials" class="smooth-scroll">04 <span>Clients</span></a>
-                            </div>
-                            <!-- /Section Navigation -->
-
-                            <!-- Section Heading -->
-                            <div class="section-heading">
-                                <div class="section-title">Nice Features</div>
-                                <p class="section-subtitle">We provide you with a wide range of services. Here are some features</p>
-                            </div>
-                            <!-- /Section Heading -->
-
-                        </header>
-                    </div>
-                </div>
-                <!-- /Section Header Row -->
-
-                <!-- Section Content Row -->
-                <div class="row section-content">
-                    <div class="col-12 col-lg-10">
-                        <div class="row">
-
-                            <!-- Column -->
-                            <div class="col-lg-4">
-                                <!-- Feature box -->
-                                <div class="feature-box mb-8 mb-lg-0 text-center">
-                                    <i class="icon icon-paintbrush"></i>
-                                    <div class="title">Clean Design</div>
-                                    <p class="text">
-                                        We try to maintain a very clean minimalistic design for this template.
-                                    </p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-lg-4">
-                                <!-- Feature box -->
-                                <div class="feature-box mb-8 mb-lg-0 text-center">
-                                    <i class="icon icon-mobile"></i>
-                                    <div class="title">Mobile Friendly</div>
-                                    <p class="text">
-                                        This template is equally well displayed on all possible devices.
-                                    </p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-lg-4">
-                                <!-- Feature box -->
-                                <div class="feature-box text-center">
-                                    <i class="icon icon-heart"></i>
-                                    <div class="title">Made with <span class="text-danger">Love</span></div>
-                                    <p class="text">
-                                        We invest a lot of energy and love to develop our products to make you like.
-                                    </p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /Section Content Row -->
-
-            </div>
-        </section>
-        <!-- /Section: Features -->
-
-        <!-- Section: Testimonials -->
-        <section id="testimonials" class="section section-right section-testimonials">
-            <div class="container">
-
-                <!-- Section Muted Title -->
-                <div class="section-muted-title" data-stellar-ratio=".9">
-                    <span>Clients</span>
-                </div>
-                <!-- /Section Muted Title -->
-
-                <!-- Section Header Row -->
-                <div class="row">
-                    <div class="col-12">
-                        <header class="section-header">
-
-                            <!-- Section Navigation -->
-                            <div class="section-navigation">
-                                <a href="#features" class="smooth-scroll">03 <span>Bests</span></a>
-                                <a href="#price" class="smooth-scroll">05 <span>Price</span></a>
-                            </div>
-                            <!-- /Section Navigation -->
-
-                            <!-- Section Heading -->
-                            <div class="section-heading">
-                                <div class="section-title">Clients Says</div>
-                                <p class="section-subtitle">We really appreciate our customers and this is what they say about us</p>
-                            </div>
-                            <!-- /Section Heading -->
-
-                        </header>
-                    </div>
-                </div>
-                <!-- /Section Header Row -->
-
-                <!-- Section Content Row -->
-                <div class="row">
-                    <div class="col-12 col-lg-10">
-                        <div class="row">
-
-                            <!-- Column -->
-                            <div class="col-12">
-
-                                <!-- OwlCarousel -->
-                                <div class="owl-carousel owl-theme owl-navigation" data-items="1">
-
-                                    <!-- OwlSlide Item -->
-                                    <div class="owl-slide">
-                                        <!-- Testimonial Item -->
-                                        <div class="testimonial-item">
-
-                                            <!-- Avatar -->
-                                            <div class="avatar">
-                                                <img src="images/avatar-01.jpg" alt="" title="">
-                                            </div>
-                                            <!-- /Avatar -->
-
-                                            <!-- Information -->
-                                            <div class="body">
-
-                                                <!-- Text -->
-                                                <div class="text">
-                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                                                </div>
-                                                <!-- /Text -->
-
-                                                <!-- Name -->
-                                                <div class="name">Anna Estrada</div>
-                                                <!-- /Name -->
-
-                                                <!-- Additional -->
-                                                <div class="additional">Company Founder & CEO</div>
-                                                <!-- /Additional -->
-
-                                            </div>
-                                            <!-- /Information -->
-
-                                        </div>
-                                        <!-- /Testimonial Item -->
-                                    </div>
-                                    <!-- /OwlSlide Item -->
-
-                                    <!-- OwlSlide Item -->
-                                    <div class="owl-slide">
-                                        <!-- Testimonial Item -->
-                                        <div class="testimonial-item">
-
-                                            <!-- Avatar -->
-                                            <div class="avatar">
-                                                <img src="images/avatar-02.jpg" alt="" title="">
-                                            </div>
-                                            <!-- /Avatar -->
-
-                                            <!-- Information -->
-                                            <div class="body">
-
-                                                <!-- Text -->
-                                                <div class="text">
-                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                                                </div>
-                                                <!-- /Text -->
-
-                                                <!-- Name -->
-                                                <div class="name">Julie Warren</div>
-                                                <!-- /Name -->
-
-                                                <!-- Additional -->
-                                                <div class="additional">SEO Specialist</div>
-                                                <!-- /Additional -->
-
-                                            </div>
-                                            <!-- /Information -->
-
-                                        </div>
-                                        <!-- /Testimonial Item -->
-                                    </div>
-                                    <!-- /OwlSlide Item -->
-
-                                    <!-- OwlSlide Item -->
-                                    <div class="owl-slide">
-                                        <!-- Testimonial Item -->
-                                        <div class="testimonial-item">
-
-                                            <!-- Avatar -->
-                                            <div class="avatar">
-                                                <img src="images/avatar-03.jpg" alt="" title="">
-                                            </div>
-                                            <!-- /Avatar -->
-
-                                            <!-- Information -->
-                                            <div class="body">
-
-                                                <!-- Text -->
-                                                <div class="text">
-                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                                                </div>
-                                                <!-- /Text -->
-
-                                                <!-- Name -->
-                                                <div class="name">Samantha Evans</div>
-                                                <!-- /Name -->
-
-                                                <!-- Additional -->
-                                                <div class="additional">Account Manager</div>
-                                                <!-- /Additional -->
-
-                                            </div>
-                                            <!-- /Information -->
-
-                                        </div>
-                                        <!-- /Testimonial Item -->
-                                    </div>
-                                    <!-- /OwlSlide Item -->
-
-                                </div>
-                                <!-- /OwlCarousel -->
-
-                            </div>
-                            <!-- /Column -->
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /Section Content Row -->
-
-            </div>
-        </section>
-        <!-- /Section: Testimonials -->
 
         <!-- Section: Price -->
         <section id="price" class="section section-price">
@@ -659,108 +353,7 @@
                 <!-- Section Content Row -->
                 <div class="row">
                     <div class="col-12 col-lg-10">
-
-                        <!-- Information Row -->
-                        <div class="row">
-
-                            <!-- Column -->
-                            <div class="col-12 col-md-4">
-                                <!-- Feature box -->
-                                <div class="feature-box feature-box-sm mb-8 text-center">
-                                    <i class="icon icon-map-pin"></i>
-                                    <div class="title">Address</div>
-                                    <p class="text">
-                                        <a href="#" class="link">1355 Market Street, Suite 900</a>
-                                    </p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-md-4">
-                                <!-- Feature box -->
-                                <div class="feature-box feature-box-sm mb-8 text-center">
-                                    <i class="icon icon-envelope"></i>
-                                    <div class="title">Email</div>
-                                    <p class="text"><a href="mailto:#" class="link">clients@example.com</a></p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-md-4">
-                                <!-- Feature box -->
-                                <div class="feature-box feature-box-sm mb-8 text-center">
-                                    <i class="icon icon-tablet"></i>
-                                    <div class="title">Phone</div>
-                                    <p class="text"><a href="tel:#" class="link">+1 (123) 456-7890</a></p>
-                                </div>
-                                <!-- /Feature box -->
-                            </div>
-                            <!-- /Column -->
-
-                        </div>
-                        <!-- /Information Row -->
-
-                        <!-- Form Row -->
-                        <div class="row">
-                            <!-- Column -->
-                            <div class="col-12 pt-5">
-
-                                <!-- Form -->
-                                <form class="form-ajax">
-
-                                    <!-- Form Hidden Fields -->
-                                    <input type="hidden" name="form" value="Contact">
-                                    <!-- /Form Hidden Fields -->
-
-                                    <!-- Row -->
-                                    <div class="row">
-
-                                        <!-- Form Group -->
-                                        <div class="form-group col-md-6">
-                                            <div class="md-input">
-                                                <label for="frm-contact-name" class="md-label">Your Name</label>
-                                                <input id="frm-contact-name" type="text" name="name" class="form-control md-form-control" placeholder="Your Name... *" required>
-                                            </div>
-                                        </div>
-                                        <!-- /Form Group -->
-
-                                        <!-- Form Group -->
-                                        <div class="form-group col-md-6">
-                                            <div class="md-input">
-                                                <label for="frm-contact-email" class="md-label">E-mail Address</label>
-                                                <input id="frm-contact-email" type="email" name="email" class="md-form-control form-control" placeholder="E-mail address... *" required>
-                                            </div>
-                                        </div>
-                                        <!-- /Form Group -->
-
-                                    </div>
-                                    <!-- /Row -->
-
-                                    <!-- Form Group -->
-                                    <div class="form-group mb-4">
-                                        <div class="md-input">
-                                            <label for="frm-contact-message" class="md-label">Message</label>
-                                            <textarea id="frm-contact-message" name="message" class="md-form-control form-control" placeholder="Message... " rows="6"></textarea>
-                                        </div>
-                                    </div>
-                                    <!-- /Form Group -->
-
-                                    <!-- Send Message Button -->
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
-                                    <!-- /Send Message Button -->
-
-                                </form>
-                                <!-- Form -->
-
-                            </div>
-                            <!-- /Column -->
-                        </div>
-                        <!-- /Form Row -->
-
+                        <contact-form></contact-form>
                     </div>
                 </div>
                 <!-- /Section Content Row -->

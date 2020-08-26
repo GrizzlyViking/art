@@ -3,7 +3,7 @@
 <head>
 
     <!-- Page title -->
-    <title>Clarity - Responsive Multipurpose Clean and Minimal Site Template</title>
+    <title>Natalia Schlossberg Art Studio</title>
     <!-- /Page title -->
 
     <!-- Meta -->
@@ -12,8 +12,8 @@
     <!-- /Meta -->
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/core.min.css">
-    <link rel="stylesheet" href="assets/css/theme.min.css?v=2">
+    <link rel="stylesheet" href="{{ asset('assets/css/core.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css?v=2') }}">
     <!-- /Styles -->
 
 </head>
@@ -21,7 +21,7 @@
 
 
 <!-- Navigation -->
-@include('layout.navigation')
+@include('layouts.navigation')
 <!-- /Navigation -->
 
 
@@ -31,13 +31,14 @@
 
 
 <!-- Search -->
-@include('layout.search')
+@include('layouts.search')
 <!-- Search -->
 
 
 <!-- Scripts -->
-<script src="assets/js/core.min.js"></script>
-<script src="assets/js/theme.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('assets/js/core.min.js') }}"></script>
+<script src="{{ asset('assets/js/theme.min.js') }}"></script>
 <!-- /Scripts -->
 
 </body>
