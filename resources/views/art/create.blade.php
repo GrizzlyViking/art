@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                   <label for="size">Size</label>
-                  <input type="text" class="form-control" id="size" aria-describedby="sizeHlp" placeholder="70cm x 70cm">
+                  <input type="text" class="form-control" id="size" name="size" aria-describedby="sizeHlp" placeholder="70cm x 70cm">
                   <small id="sizeHlp" class="form-text text-muted">This is free text, so you can add what you want.</small>
                 </div>
                 <div class="form-group">
