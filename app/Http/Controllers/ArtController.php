@@ -29,17 +29,18 @@ class ArtController extends Controller
 
     /**
      * @param Request $request
-     * @return Response|null
+     * @return RedirectResponse
      * @throws FileDoesNotExist
      * @throws FileIsTooBig
      */
-    public function store(Request $request): ?Response
+    public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string',
             'amount' => 'required|numeric',
             'description' => 'string',
-            'size' => 'string'
+            'size' => 'string',
+            'uploaded_file' => 'required|file|size:2024|mimes:jpeg,bmp,png'
         ]);
 
         /** @var Price $price */
@@ -61,13 +62,11 @@ class ArtController extends Controller
             ]
         );
 
-        if ($request->hasFile('uploaded_file') && $request->file('uploaded_file')->isValid()) {
-            /** @var UploadedFile $artwork */
-            $artwork = $request->file('uploaded_file');
-            $art->addMedia($artwork)->toMediaCollection('painting');
-        }
+        /** @var UploadedFile $artwork */
+        $artwork = $request->file('uploaded_file');
+        $art->addMedia($artwork)->toMediaCollection('painting');
 
-        return response('this worked');
+        return redirect()->route('art.create')->setStatusCode(201);
     }
 
     public function show(Product $art): Renderable

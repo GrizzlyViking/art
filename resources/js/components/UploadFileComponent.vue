@@ -3,7 +3,7 @@
         <div class="custom-file mt-2">
             <input id="uploaded_file" name="uploaded_file" type="file" ref="file" class="custom-file-input" @change="handleFileUpload">
             <label class="custom-file-label" for="uploaded_file">
-                <span class="d-inline-block text-truncate w-75"><slot/> {{ filename }}</span>
+                <span class="d-inline-block text-truncate w-75">{{ placeholder }}</span>
             </label>
         </div>
     </div>
@@ -11,6 +11,7 @@
 
 <script>
     export default {
+        props: ['placeholder'],
         data() {
             return {
                 file: '',
@@ -20,7 +21,7 @@
         methods: {
             handleFileUpload() {
                 this.file = this.$refs.file.files[0];
-                this.filename = this.file.name;
+                this.placeholder = this.file.name;
             }
         },
         mounted() {

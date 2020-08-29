@@ -2084,6 +2084,9 @@ __webpack_require__.r(__webpack_exports__);
   name: "TableListComponent",
   props: ['art'],
   methods: {
+    create: function create() {
+      window.location.href = '/admin/art/create';
+    },
     edit: function edit(artwork) {
       window.location.href = '/admin/art/' + artwork.id + '/edit';
     },
@@ -2120,6 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['placeholder'],
   data: function data() {
     return {
       file: '',
@@ -2129,7 +2133,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     handleFileUpload: function handleFileUpload() {
       this.file = this.$refs.file.files[0];
-      this.filename = this.file.name;
+      this.placeholder = this.file.name;
     }
   },
   mounted: function mounted() {
@@ -38177,7 +38181,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("table", { staticClass: "table" }, [
-      _vm._m(0),
+      _c("thead", [
+        _c("tr", [
+          _c("th", [_vm._v("#ID")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Title")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Size")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Price")]),
+          _vm._v(" "),
+          _c("th", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success",
+                attrs: { type: "button" },
+                on: { click: _vm.create }
+              },
+              [_vm._v("Create")]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "tbody",
@@ -38233,35 +38259,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("#ID")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Size")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Price")]),
-        _vm._v(" "),
-        _c("th", [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-success",
-              attrs: { type: "button" }
-            },
-            [_vm._v("Create")]
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38296,12 +38294,9 @@ var render = function() {
         "label",
         { staticClass: "custom-file-label", attrs: { for: "uploaded_file" } },
         [
-          _c(
-            "span",
-            { staticClass: "d-inline-block text-truncate w-75" },
-            [_vm._t("default"), _vm._v(" " + _vm._s(_vm.filename))],
-            2
-          )
+          _c("span", { staticClass: "d-inline-block text-truncate w-75" }, [
+            _vm._v(_vm._s(_vm.placeholder))
+          ])
         ]
       )
     ])

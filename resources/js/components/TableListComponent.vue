@@ -7,7 +7,7 @@
                 <th>Title</th>
                 <th>Size</th>
                 <th>Price</th>
-                <th><button type="button" class="btn btn-outline-success">Create</button></th>
+                <th><button type="button" class="btn btn-outline-success" @click="create">Create</button></th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +31,9 @@ export default {
     name: "TableListComponent",
     props: ['art'],
     methods: {
+        create () {
+            window.location.href = '/admin/art/create'
+        },
         edit(artwork) {
             window.location.href = '/admin/art/' + artwork.id + '/edit'
         },
