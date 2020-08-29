@@ -40,7 +40,7 @@ class ArtController extends Controller
             'amount' => 'required|numeric',
             'description' => 'string',
             'size' => 'string',
-            'uploaded_file' => 'required|file|size:2024|mimes:jpeg,bmp,png'
+            'uploaded_file' => 'required|file|mimes:jpeg,bmp,png'
         ]);
 
         /** @var Price $price */
