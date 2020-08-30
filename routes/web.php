@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['uses' => 'PageController@index', 'as' => 'landing']);
 
-Route::get('/about', ['uses' => 'pageController@about', 'as' => 'about']);
+Route::get('/about', ['uses' => 'PageController@about', 'as' => 'about']);
 
-Route::get('/blog', ['uses' => 'pageController@blog', 'as' => 'blog']);
+Route::get('/blog', ['uses' => 'PageController@blog', 'as' => 'blog']);
 
-Route::get('/portfolio', ['uses' => 'pageController@portfolio', 'as' => 'portfolio']);
+Route::get('/portfolio', ['uses' => 'PageController@portfolio', 'as' => 'portfolio']);
 
-Route::get('/contact', ['uses' => 'pageController@contact', 'as' => 'contact']);
+Route::get('/contact', ['uses' => 'PageController@contact', 'as' => 'contact']);
 
-Route::post('/mail', ['uses' => 'pageController@mail', 'as' => 'contactForm']);
+Route::post('/mail', ['uses' => 'PageController@mail', 'as' => 'contactForm']);
 
 Auth::routes();
 

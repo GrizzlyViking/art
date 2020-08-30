@@ -5,6 +5,13 @@
         <div class="row">
             <form action="{{ route('art.store') }}" method="post" class="col-sm-offset-3 col-6" enctype="multipart/form-data">
                 @csrf
+                <div class="form-group mb-4">
+                    <label for="uploaded_file">Picture of art</label>
+                    <upload-file id="uploaded_file" placeholder="Upload photos of the art"></upload-file>
+                    @error('uploaded_file')
+                    <small id="descriptionHlp" class="form-text text-danger mt-4">{{$message}}</small>
+                    @enderror
+                </div>
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHlp" value="{{ old('title') }}">
@@ -34,10 +41,6 @@
                     <small id="descriptionHlp" class="form-text text-danger">{{$message}}</small>
                     @enderror
                 </div>
-                <upload-file placeholder="Upload photos of the art"></upload-file>
-                @error('uploaded_file')
-                <small id="descriptionHlp" class="form-text text-danger mt-4">{{$message}}</small>
-                @enderror
                 <div class="text-right mt-4">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>

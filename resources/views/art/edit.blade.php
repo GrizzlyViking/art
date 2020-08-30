@@ -27,7 +27,11 @@
                               aria-describedby="descriptionHlp">{{ old('description', $art->description ?? '') }}</textarea>
                     <small id="descriptionHlp" class="form-text text-muted">Description.</small>
                 </div>
-                <upload-file>Upload photos of the art</upload-file>
+                <upload-file
+                placeholder="Upload photo of the art"
+                img="{{$art->getFirstMedia('painting')->getUrl()}}"
+                >
+                </upload-file>
                 <div class="text-right mt-4">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>

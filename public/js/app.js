@@ -2122,18 +2122,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['placeholder'],
+  props: ['placeholder', 'img'],
   data: function data() {
     return {
       file: '',
-      filename: ''
+      filename: '',
+      imageSrc: this.img
     };
   },
   methods: {
     handleFileUpload: function handleFileUpload() {
       this.file = this.$refs.file.files[0];
       this.placeholder = this.file.name;
+      this.imageSrc = URL.createObjectURL(this.file);
     }
   },
   mounted: function mounted() {
@@ -38281,24 +38287,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "form-group custom-file" }, [
-    _c("div", { staticClass: "custom-file mt-2" }, [
-      _c("input", {
-        ref: "file",
-        staticClass: "custom-file-input",
-        attrs: { id: "uploaded_file", name: "uploaded_file", type: "file" },
-        on: { change: _vm.handleFileUpload }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "custom-file-label", attrs: { for: "uploaded_file" } },
-        [
-          _c("span", { staticClass: "d-inline-block text-truncate w-75" }, [
-            _vm._v(_vm._s(_vm.placeholder))
-          ])
-        ]
-      )
+  return _c("div", [
+    _vm.imageSrc
+      ? _c("img", {
+          staticClass: "img-thumbnail mb-6",
+          attrs: { src: _vm.imageSrc, alt: "preview_image" }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group custom-file" }, [
+      _c("div", { staticClass: "custom-file mt-2" }, [
+        _c("input", {
+          ref: "file",
+          staticClass: "custom-file-input",
+          attrs: { id: "uploaded_file", name: "uploaded_file", type: "file" },
+          on: { change: _vm.handleFileUpload }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "custom-file-label", attrs: { for: "uploaded_file" } },
+          [
+            _c("span", { staticClass: "d-inline-block text-truncate w-75" }, [
+              _vm._v(_vm._s(_vm.placeholder))
+            ])
+          ]
+        )
+      ])
     ])
   ])
 }
