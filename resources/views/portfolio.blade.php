@@ -75,65 +75,17 @@
                         <!-- Projects Row -->
                         <div class="row">
 
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-01.jpg" class="gallery-image mb-4 popup-image">
-                                    <img src="images/3x4/image-01.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-02.jpg" class="gallery-image mb-4 popup-image">
-                                    <img src="images/3x4/image-02.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-03.jpg" class="gallery-image mb-4 popup-image">
-                                    <img src="images/3x4/image-03.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-04.jpg" class="gallery-image mb-4 popup-image">
-                                    <img src="images/3x4/image-04.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-05.jpg" class="gallery-image mb-4 popup-image">
-                                    <img src="images/3x4/image-05.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
-
-                            <!-- Column -->
-                            <div class="col-12 col-lg-4">
-                                <!-- Gallery Item -->
-                                <a href="images/3x4/image-06.jpg" class="gallery-image popup-image">
-                                    <img src="images/3x4/image-06.jpg" alt="" title="" class="img-fluid">
-                                </a>
-                                <!-- /Gallery Item -->
-                            </div>
-                            <!-- /Column -->
+                            @foreach($products as $product)
+                                <!-- Column -->
+                                    <div class="col-12 col-lg-4">
+                                        <!-- Gallery Item -->
+                                        <a href="{{ $product->getFirstMedia('painting')->getUrl() }}" class="gallery-image mb-4 popup-image">
+                                            <img src="{{ $product->getFirstMedia('painting')->getUrl() }}" alt="{{ $product->title }}" title="{{ $product->title }}" class="img-fluid">
+                                        </a>
+                                        <!-- /Gallery Item -->
+                                    </div>
+                                    <!-- /Column -->
+                            @endforeach
 
                         </div>
                         <!-- /Projects Row -->

@@ -28,8 +28,14 @@ Route::post('/mail', ['uses' => 'PageController@mail', 'as' => 'contactForm']);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', )->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/page/landingPage', 'CMSController@index');
+    Route::get('/page/about', 'CMSController@about');
+    Route::get('/page/blog', 'CMSController@blog');
+    Route::get('/page/portfolio', 'CMSController@portfolio');
+    Route::get('/page/contact', 'CMSController@contact');
     Route::resource('art', 'ArtController');
 });

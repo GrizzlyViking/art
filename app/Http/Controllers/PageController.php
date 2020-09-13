@@ -29,7 +29,8 @@ class PageController extends Controller
 
     public function portfolio()
     {
-        return view('portfolio');
+        $products = Product::all();
+        return view('portfolio', compact('products'));
     }
 
     public function contact()
