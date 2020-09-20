@@ -226,6 +226,7 @@
                 </div>
                 <!-- /Section Header Row -->
 
+                @if(false)
                 <!-- Section Content Row -->
                 <div class="row section-content">
                     <div class="col-12 col-lg-10">
@@ -311,6 +312,7 @@
                     </div>
                 </div>
                 <!-- /Section Content Row -->
+                @endif
 
             </div>
         </section>
