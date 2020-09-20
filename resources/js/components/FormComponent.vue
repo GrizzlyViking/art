@@ -16,18 +16,6 @@
             </div>
             <!-- /Column -->
 
-            <!-- Column -->
-            <div class="col-12 col-md-4">
-                <!-- Feature box -->
-                <div class="feature-box feature-box-sm mb-8 text-center">
-                    <i class="icon icon-tablet"></i>
-                    <div class="title">Phone</div>
-                    <p class="text"><a href="tel:#" class="link">+45 51703414</a></p>
-                </div>
-                <!-- /Feature box -->
-            </div>
-            <!-- /Column -->
-
         </div>
         <!-- /Information Row -->
 
