@@ -192,6 +192,7 @@
         </section>
         <!-- /Section: Projects -->
 
+        @if(false)
         <!-- Section: Price -->
         <section id="price" class="section section-price">
             <div class="container">
@@ -226,7 +227,6 @@
                 </div>
                 <!-- /Section Header Row -->
 
-                @if(false)
                 <!-- Section Content Row -->
                 <div class="row section-content">
                     <div class="col-12 col-lg-10">
@@ -312,11 +312,11 @@
                     </div>
                 </div>
                 <!-- /Section Content Row -->
-                @endif
 
             </div>
         </section>
         <!-- /Section: Price -->
+        @endif
 
         <!-- Section: Contact -->
         <section id="contact" class="section section-right section-contact">
