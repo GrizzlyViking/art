@@ -16,35 +16,13 @@
         <div id="navbar-fullscreen" class="navbar-nav-fullscreen">
             <ul class="navbar-nav">
 
+                @foreach($pages->reject(function($page) { return $page->slug === 'home'; }) as $page)
                 <!-- Navbar Item -->
                 <li class="nav-item">
-                    <a href="{{ route('landing') }}" class="nav-link">Home</a>
+                    <a href="{{ route($page->slug) }}" class="nav-link">{{ $page->slug }}</a>
                 </li>
                 <!-- Navbar Item -->
-
-                <!-- Navbar Item -->
-                <li class="nav-item">
-                    <a href="{{ route('about') }}" class="nav-link">About</a>
-                </li>
-                <!-- Navbar Item -->
-
-                <!-- Navbar Item -->
-                <li class="nav-item">
-                    <a href="{{ route('blog') }}" class="nav-link">Blog</a>
-                </li>
-                <!-- Navbar Item -->
-
-                <!-- Navbar Item -->
-                <li class="nav-item">
-                    <a href="{{ route('portfolio') }}" class="nav-link">Portfolio</a>
-                </li>
-                <!-- Navbar Item -->
-
-                <!-- Navbar Item -->
-                <li class="nav-item">
-                    <a href="{{ route('contact') }}" class="nav-link">Contact</a>
-                </li>
-                <!-- Navbar Item -->
+                @endforeach
 
                 <!-- Navbar Item -->
                 <li class="nav-item d-lg-none">
