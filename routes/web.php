@@ -16,20 +16,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['uses' => 'PageController@index', 'as' => 'landing']);
 
-Route::get('/about', ['uses' => 'pageController@about', 'as' => 'about']);
+Route::get('/about', ['uses' => 'PageController@about', 'as' => 'about']);
 
-Route::get('/blog', ['uses' => 'pageController@blog', 'as' => 'blog']);
+Route::get('/blog', ['uses' => 'PageController@blog', 'as' => 'blog']);
 
-Route::get('/portfolio', ['uses' => 'pageController@portfolio', 'as' => 'portfolio']);
+Route::get('/portfolio', ['uses' => 'PageController@portfolio', 'as' => 'portfolio']);
 
-Route::get('/contact', ['uses' => 'pageController@contact', 'as' => 'contact']);
+Route::get('/contact', ['uses' => 'PageController@contact', 'as' => 'contact']);
 
-Route::post('/mail', ['uses' => 'pageController@mail', 'as' => 'contactForm']);
+Route::post('/mail', ['uses' => 'PageController@mail', 'as' => 'contactForm']);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', )->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/page', ['uses' => 'PageController@list', 'as' => 'page.list']);
+    Route::get('/page/create', ['uses' => 'PageController@create', 'as' => 'page.create']);
+    Route::get('/page/{page}', ['uses' => 'PageController@edit', 'as' => 'page.edit']);
+    Route::post('/page', ['uses' => 'PageController@store', 'as' => 'page.store']);
+    Route::put('/page/{page}', ['uses' => 'PageController@update', 'as' => 'page.update']);
     Route::resource('art', 'ArtController');
 });
