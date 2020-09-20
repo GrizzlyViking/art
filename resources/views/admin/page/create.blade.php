@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                           <label for="slug">Slug</label>
-                          <input type="text" class="form-control" id="slug" aria-describedby="hlpSlug">
+                          <input type="text" class="form-control" id="slug" name="slug" aria-describedby="hlpSlug">
                             @error('slug')
                                 <small id="hlpSlug" class="form-text text-danger">{{ $message }}.</small>
                             @enderror
@@ -35,9 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <text-editor id="content" name="content" slug="landing-page"
-                                         initial-content="{{ old('content') }}">Content
-                            </text-editor>
+                            <textarea id="content" class="form-control" name="content">{{ old('content') }}</textarea>
                             @error('content')
                             <small id="helpTitle" class="form-text text-danger">{{ $message }}</small>
                             @enderror

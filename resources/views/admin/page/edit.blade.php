@@ -29,9 +29,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <text-editor id="content" name="content" slug="landing-page"
-                                         initial-content="{{ old('content', $page->content) }}">Content
-                            </text-editor>
+                            <textarea id="content" class="form-control" name="content">{{ old('content') }}</textarea>
                             @error('content')
                                 <small id="helpTitle" class="form-text text-danger">{{ $message }}</small>
                             @enderror

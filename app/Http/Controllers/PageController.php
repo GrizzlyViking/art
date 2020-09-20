@@ -69,7 +69,8 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|unique',
+            'title' => 'required|string',
+            'slug' => 'required|string|unique:pages,slug',
             'subtitle' => 'required',
             'content' => 'nullable'
         ]);
