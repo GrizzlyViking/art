@@ -7,13 +7,13 @@
                 @csrf
                 <div class="card-body">
                     <div class="card-header">
-                        <div class="h2">{{ $page->title }}</div>
+                        <div class="h2">Create page</div>
                     </div>
                     <div class="card-text">
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title" name="title" aria-describedby="helpTitle"
-                                   value="{{ old('title', $page->title) }}">
+                                   value="{{ old('title') }}">
                             @error('title')
                             <small id="helpTitle" class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="subtitle">Sub Title</label>
                             <input type="text" class="form-control" id="subtitle" name="subtitle" aria-describedby="helpSubTitle"
-                                   value="{{ old('subtitle', $page->subtitle) }}">
+                                   value="{{ old('subtitle') }}">
                             @error('subtitle')
                                 <small id="helpSubTitle" class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label for="content">Content</label>
                             <text-editor id="content" name="content" slug="landing-page"
-                                         initial-content="{{ old('content', $page->content) }}">Content
+                                         initial-content="{{ old('content') }}">Content
                             </text-editor>
                             @error('content')
                             <small id="helpTitle" class="form-text text-danger">{{ $message }}</small>
