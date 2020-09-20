@@ -7,15 +7,9 @@ use Illuminate\Http\Request;
 
 class CMSController extends Controller
 {
-    public function edit(Page $page)
-    {
-        
-    }
-
-
     public function index()
     {
-
+        return view('cms.index');
     }
 
     public function about()

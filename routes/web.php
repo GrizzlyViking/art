@@ -32,10 +32,10 @@ Route::get('/home', )->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::get('/page/landingPage', 'CMSController@index');
-    Route::get('/page/about', 'CMSController@about');
-    Route::get('/page/blog', 'CMSController@blog');
-    Route::get('/page/portfolio', 'CMSController@portfolio');
-    Route::get('/page/contact', 'CMSController@contact');
+    Route::get('/page', ['uses' => 'PageController@list', 'as' => 'page.list']);
+    Route::get('/page/create', ['uses' => 'PageController@create', 'as' => 'page.create']);
+    Route::get('/page/{page}', ['uses' => 'PageController@edit', 'as' => 'page.edit']);
+    Route::post('/page', ['uses' => 'PageController@store', 'as' => 'page.store']);
+    Route::put('/page/{page}', ['uses' => 'PageController@update', 'as' => 'page.update']);
     Route::resource('art', 'ArtController');
 });

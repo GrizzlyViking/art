@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "spatie/image": "^1.7",
+        "ext-http": "*",
         "spatie/laravel-medialibrary": "^8.0.0"
     },
     "require-dev": {

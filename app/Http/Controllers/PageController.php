@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactForm;
+use App\Model\Page;
 use App\Model\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
+    public function list()
+    {
+        return view('admin.page.list');
+    }
+
     public function index()
     {
         /** @var Product[] $products */
@@ -19,7 +25,8 @@ class PageController extends Controller
 
     public function about()
     {
-        return view('about');
+        $page = Page::where('slug', 'about')->first();
+        return view('about', compact('page'));
     }
 
     public function blog()
@@ -29,8 +36,9 @@ class PageController extends Controller
 
     public function portfolio()
     {
+        $page = Page::where('slug', 'portfolio')->first();
         $products = Product::all();
-        return view('portfolio', compact('products'));
+        return view('portfolio', compact('products', 'page'));
     }
 
     public function contact()
@@ -51,5 +59,41 @@ class PageController extends Controller
         }
 
         return response()->json(['outcome' => 'success']);
+    }
+
+    public function create()
+    {
+        return view('admin.page.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|unique',
+            'subtitle' => 'required',
+            'content' => 'nullable'
+        ]);
+
+        Page::create($validated);
+
+        return redirect(route('page.list'));
+    }
+
+    public function edit(Page $page)
+    {
+        return view('admin.page.edit', compact('page'));
+    }
+
+    public function update(Page $page, Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string',
+            'subtitle' => 'required',
+            'content' => 'nullable'
+        ]);
+
+        $page->update($validated);
+
+        return redirect(route('page.list'));
     }
 }
