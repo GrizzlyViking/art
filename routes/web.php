@@ -26,9 +26,15 @@ Route::get('/contact', ['uses' => 'PageController@contact', 'as' => 'contact']);
 
 Route::post('/mail', ['uses' => 'PageController@mail', 'as' => 'contactForm']);
 
+Route::get('art/{art}', 'ArtController@show');
+
+Route::put('basket', ['uses' => 'PurchaseController@basket', 'as' => 'put.basket']);
+
 Auth::routes();
 
-Route::get('/home', )->name('home');
+Route::get('/home', function() {
+    redirect(route('dashboard'));
+})->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');

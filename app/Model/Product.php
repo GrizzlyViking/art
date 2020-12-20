@@ -51,4 +51,9 @@ class Product extends Model implements HasMedia
 
         return $this;
     }
+
+    public function basket()
+    {
+        return $this->belongsToMany(Basket::class, 'basket_items');
+    }
 }

@@ -6,10 +6,38 @@
             <div class="col-12 col-md-4">
                 <!-- Feature box -->
                 <div class="feature-box feature-box-sm mb-8 text-center">
-                    <i class="icon icon-map-pin"></i>
-                    <div class="title">Address</div>
+                    <i class="fa fa-instagram fs-1"></i>
+                    <div class="title">Instagram</div>
                     <p class="text">
-                        <a href="#" class="link">Sluseholmen, København SV</a>
+                        <a href="https://www.instagram.com/natalia_schlossberg_studio/" class="link">natalia_schlossberg_studio</a>
+                    </p>
+                </div>
+                <!-- /Feature box -->
+            </div>
+            <!-- /Column -->
+
+            <!-- Column -->
+            <div class="col-12 col-md-4">
+                <!-- Feature box -->
+                <div class="feature-box feature-box-sm mb-8 text-center">
+                    <i class="fa fa-facebook fs-1"></i>
+                    <div class="title">Facebook</div>
+                    <p class="text">
+                        <a href="https://www.facebook.com/NatSchlossbergStudio/" class="link">NatSchlossbergStudio</a>
+                    </p>
+                </div>
+                <!-- /Feature box -->
+            </div>
+            <!-- /Column -->
+
+            <!-- Column -->
+            <div class="col-12 col-md-4">
+                <!-- Feature box -->
+                <div class="feature-box feature-box-sm mb-8 text-center">
+                    <i class="fa fa-pinterest-p fs-1"></i>
+                    <div class="title">Facebook</div>
+                    <p class="text">
+                        <a href="https://www.pinterest.co.uk/nataliaschlossbergstudio/" class="link">nataliaschlossbergstudio</a>
                     </p>
                 </div>
                 <!-- /Feature box -->

@@ -76,8 +76,8 @@
                                 <!-- Column -->
                                     <div class="col-12 col-lg-4">
                                         <!-- Gallery Item -->
-                                        <a href="{{ $product->getFirstMedia('painting')->getUrl() }}" class="gallery-image mb-4 popup-image">
-                                            <img src="{{ $product->getFirstMedia('painting')->getUrl() }}" alt="{{ $product->title }}" title="{{ $product->title }}" class="img-fluid">
+                                        <a href="{{ $product->getFirstMediaUrl('painting') }}" class="gallery-image mb-4 popup-image">
+                                            <img src="{{ $product->getFirstMediaUrl('painting') }}" alt="{{ $product->title }}" title="{{ $product->title }}" class="img-fluid">
                                         </a>
                                         <!-- /Gallery Item -->
                                     </div>

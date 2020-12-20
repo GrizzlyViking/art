@@ -23,6 +23,7 @@ Vue.component('contact-form', require('./components/FormComponent.vue').default)
 Vue.component('upload-file', require('./components/UploadFileComponent.vue').default);
 Vue.component('art-list', require('./components/TableListComponent.vue').default);
 Vue.component('text-editor', require('./components/TextEditorComponent.vue').default);
+Vue.component('buy-button', require('./components/BuyButton.vue').default);
 
 const app = new Vue({
     el: '#app',

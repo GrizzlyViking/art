@@ -18,7 +18,9 @@ class PageController extends Controller
     public function index()
     {
         /** @var Product[] $products */
-        $products = Product::all();
+        $products = Product::all()->filter(function(Product $product) {
+            return !empty($product->getMedia());
+        });
 
         return view('index', compact('products'));
     }
@@ -37,7 +39,9 @@ class PageController extends Controller
     public function portfolio()
     {
         $page = Page::where('slug', 'portfolio')->first();
-        $products = Product::all();
+        $products = Product::all()->filter(function(Product $product) {
+            return !empty($product->getMedia());
+        });
         return view('portfolio', compact('products', 'page'));
     }
 

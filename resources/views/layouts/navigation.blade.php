@@ -9,7 +9,7 @@
         <!-- /Navbar Toggler -->
 
         <!-- Brand -->
-        <a class="navbar-brand d-sm-inline-block w-auto col-lg-2" href="{{ route('landing') }}">{{ env('APP_NAME') }}</a>
+        <a class="navbar-brand d-sm-inline-block w-auto col-lg-2" href="{{ route('landing') }}">{{ config('app.name') }}</a>
         <!-- /Brand -->
 
         <!-- Middle -->
@@ -27,7 +27,7 @@
                 <!-- Navbar Item -->
                 <li class="nav-item d-lg-none">
                     <a href="#" class="nav-link" data-toggle="class" data-target="#page-search" data-class="active">
-                        <i class="icon mr-2 fa fa-search"></i> Search
+                        <i class="icon mr-2 fa fa-shopping-cart"></i> Shopping Cart
                     </a>
                 </li>
                 <!-- /Navbar Item -->
@@ -42,7 +42,7 @@
             <!-- Navbar Item -->
             <li class="nav-item">
                 <a href="#" class="nav-link" data-toggle="class" data-target="#page-search" data-class="active">
-                    <i class="icon fa fa-search"></i>
+                    <i class="icon fa fa-shopping-cart"></i>
                 </a>
             </li>
             <!-- /Navbar Item -->

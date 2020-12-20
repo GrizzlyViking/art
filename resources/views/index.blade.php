@@ -4,7 +4,7 @@
     <main id="app" class="main-container">
 
         <!-- Hero -->
-        <header id="home" class="hero" style="background-image: url(images/home.png);" data-stellar-background-ratio=".5">
+        <header id="home" class="hero" style="background-image: url({{ asset('images/home.png') }});" data-stellar-background-ratio=".5">
 
             <!-- Hero Middle Parallax Wrapper -->
             <div class="hero-content-wrapper" data-stellar-ratio=".75">
@@ -16,7 +16,7 @@
                             <div class="col-12 text-center">
 
                                 <!-- Hero Title -->
-                                <h1 class="hero-title fw-light">{{ env('APP_NAME') }}</h1>
+                                <h1 class="hero-title fw-light">{{ config('app.name') }}</h1>
                                 <!-- /Hero Title -->
 
                             </div>
@@ -39,6 +39,7 @@
         </header>
         <!-- /Hero -->
 
+        @if($pages->contains(\App\Model\Page::where('slug', 'blog')->first()))
         <!-- Section: About -->
         <section id="about" class="section section-about">
             <div class="container">
@@ -131,6 +132,7 @@
             </div>
         </section>
         <!-- /Section: About -->
+        @endif
 
         <!-- Section: Projects -->
         <section id="projects" class="section section-right section-projects">
@@ -138,7 +140,7 @@
 
                 <!-- Section Muted Title -->
                 <div class="section-muted-title" data-stellar-ratio=".9">
-                    <span>Projects</span>
+                    <span>Paintings</span>
                 </div>
                 <!-- /Section Muted Title -->
 
@@ -149,8 +151,8 @@
 
                             <!-- Section Navigation -->
                             <div class="section-navigation">
-                                <a href="#about" class="smooth-scroll">01 <span>About</span></a>
-                                <a href="#features" class="smooth-scroll">03 <span>Bests</span></a>
+                                <a href="#about" class="smooth-scroll">01 <span>Art</span></a>
+                                <a href="#features" class="smooth-scroll">{{ str_pad($products->count(), 2, 0, STR_PAD_LEFT) }} <span>Paintings</span></a>
                             </div>
                             <!-- /Section Navigation -->
 
@@ -175,8 +177,8 @@
                             <!-- Column -->
                             <div class="col-12 col-lg-4">
                                 <!-- Gallery Item -->
-                                <a href="{{ $product->getFirstMedia('painting')->getUrl() }}" class="gallery-image popup-image mb-4">
-                                    <img src="{{ $product->getFirstMedia('painting')->getUrl() }}" alt="" title="" class="img-fluid">
+                                <a href="{{ $product->getFirstMediaUrl('painting') }}" class="gallery-image popup-image mb-4">
+                                    <img src="{{ $product->getFirstMediaUrl('painting') }}" alt="" title="" class="img-fluid">
                                 </a>
                                 <!-- /Gallery Item -->
                             </div>
@@ -335,15 +337,15 @@
 
                             <!-- Section Navigation -->
                             <div class="section-navigation">
-                                <a href="#price" class="smooth-scroll">05 <span>Price</span></a>
-                                <a href="#home" class="smooth-scroll">00 <span>Home</span></a>
+                                <a href="#price" class="smooth-scroll">02 <span>Contact</span></a>
+                                <a href="#home" class="smooth-scroll">03 <span>Social</span></a>
                             </div>
                             <!-- /Section Navigation -->
 
                             <!-- Section Heading -->
                             <div class="section-heading">
-                                <div class="section-title">Contact Us</div>
-                                <p class="section-subtitle">Contact us in any convenient way and we will reply to you</p>
+                                <div class="section-title">Contact Me</div>
+                                <p class="section-subtitle">Please fill out form, if you want to get in touch</p>
                             </div>
                             <!-- /Section Heading -->
 
